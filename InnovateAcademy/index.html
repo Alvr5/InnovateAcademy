@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulaciones — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" id="linkPanel" href="/postula/panel" hidden>Panel</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <img class="hero-logo" src="/logo.png" alt="Innovate Academy">
+    <h1>Únete al equipo</h1>
+    <p class="sub">Entra con tu cuenta de correo electrónico y postúlate al puesto que te interese. Solo hay que iniciar sesión una vez.</p>
+
+    <div id="zonaLogin">
+        <a class="boton boton-discord" href="/iniciosesión">Entrar con Correo Electrónico</a>
+
+        <!--Enlaçe malo -->
+      <!-- <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a> -->
+    </div>
+
+    <div id="zonaUsuario" class="usuario" hidden>
+      <img id="avatar" src="#" alt="Avatar">
+      <div>
+        <strong id="nombre"></strong>
+        <span id="uid"></span>
+      </div>
+      <button id="salir">Salir</button>
+    </div>
+
+    <h2 class="titulo-seccion">Cómo funciona</h2>
+    <div class="pasos">
+      <div class="paso">
+        <span class="num">1</span>
+        <strong>Entra con Discord</strong>
+        <p>Un clic y listo, sin crear otra cuenta.</p>
+      </div>
+      <div class="paso">
+        <span class="num">2</span>
+        <strong>Elige un puesto</strong>
+        <p>Lee lo que pide cada uno y escoge el tuyo.</p>
+      </div>
+      <div class="paso">
+        <span class="num">3</span>
+        <strong>Envía tu postulación</strong>
+        <p>La revisamos y te avisamos por Discord.</p>
+      </div>
+    </div>
+
+    <h2 class="titulo-seccion">Puestos</h2>
+    <div class="roles">
+      <a class="rol abierto" href="/postula/administracion">
+        <h2>Administrador</h2>
+        <p>Organización interna, supervisión de equipos y gestión de proyectos.</p>
+        <span class="estado">Postulación abierta</span>
+      </a>
+      <a class="rol abierto" href="/postula/marketing">
+        <h2>Marketing</h2>
+        <p>Difusión, redes y crecimiento de la academia.</p>
+        <span class="estado">Postulación abierta</span>
+      </a>
+      <a class="rol abierto" href="/postula/profesor">
+        <h2>Profesor</h2>
+        <p>Clases en vivo y acompañamiento a los alumnos.</p>
+        <span class="estado">Postulación abierta</span>
+      </a>
+      <a class="rol abierto" href="/postula/staff">
+        <h2>Staff</h2>
+        <p>Apoyo general y moderación de la comunidad.</p>
+        <span class="estado">Postulación abierta</span>
+      </a>
+      <a class="rol abierto" href="/postula/gestores">
+        <h2>Gestor</h2>
+        <p>Gestión financiera y recursos de la academia.</p>
+        <span class="estado">Postulación abierta</span>
+      </a>
+    </div>
+
+    <div id="zonaMias" hidden>
+      <h2 class="titulo-seccion">Mis postulaciones</h2>
+      <div id="listaMias"></div>
+    </div>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const zonaLogin = document.getElementById("zonaLogin");
+    const zonaUsuario = document.getElementById("zonaUsuario");
+    const zonaMias = document.getElementById("zonaMias");
+    const listaMias = document.getElementById("listaMias");
+
+   // Declarar la función asíncrona
+async function getUser() {
+    // Obtener la información del usuario autenticado
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error) {
+        console.error('Error al obtener usuario:', error.message);
+        return null;
+    }
+
+    if (user) {
+        console.log('Usuario actualmente autenticado:', user);
+        return user;
+    } else {
+        console.log('No hay ninguna sesión activa');
+        return null;
+    }
+}
+
+    function avatarUrl(u) {
+      return u.avatar
+        ? "https://cdn.discordapp.com/avatars/" + u.id + "/" + u.avatar + ".png"
+        : "/logo.png";
+    }
+
+    function fechaCorta(iso) {
+      const f = new Date(iso);
+      return f.toLocaleDateString("es") + " " + f.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" });
+    }
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) return null;
+      return r.json();
+    }).then(function (d) {
+      if (!d || !d.usuario) return;
+      zonaLogin.hidden = true;
+      zonaUsuario.hidden = false;
+      document.getElementById("nombre").textContent = d.usuario.username;
+      document.getElementById("uid").textContent = "ID: " + d.usuario.id;
+      document.getElementById("avatar").src = avatarUrl(d.usuario);
+      if (d.admin) document.getElementById("linkPanel").hidden = false;
+      return fetch("/postula/api/mias").then(function (r) {
+        return r.ok ? r.json() : null;
+      }).then(function (m) {
+        if (!m || !m.postulaciones || !m.postulaciones.length) return;
+        zonaMias.hidden = false;
+        m.postulaciones.forEach(function (p) {
+          const det = document.createElement("details");
+          det.className = "postulacion";
+          const sum = document.createElement("summary");
+          const tit = document.createElement("span");
+          tit.textContent = p.categoria.charAt(0).toUpperCase() + p.categoria.slice(1);
+          const fec = document.createElement("span");
+          fec.className = "fecha";
+          fec.textContent = fechaCorta(p.fecha);
+          sum.appendChild(tit);
+          sum.appendChild(fec);
+          det.appendChild(sum);
+          const cuerpo = document.createElement("div");
+          cuerpo.className = "cuerpo";
+          Object.entries(p.respuestas).forEach(function (kv) {
+            const b = document.createElement("div");
+            b.className = "respuesta";
+            const st = document.createElement("strong");
+            st.textContent = kv[0];
+            const pp = document.createElement("p");
+            pp.textContent = kv[1] || "-";
+            b.appendChild(st);
+            b.appendChild(pp);
+            cuerpo.appendChild(b);
+          });
+          det.appendChild(cuerpo);
+          listaMias.appendChild(det);
+        });
+      });
+    });
+
+    document.getElementById("salir").addEventListener("click", function () {
+      fetch("/postula/api/salir", { method: "POST" }).then(function () {
+        window.location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

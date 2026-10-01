@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Formulario de postulación para Administración">
+
+    <title>Postulación para Administración</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 20px;
+
+            font-family: Arial, sans-serif;
+            background: #5865f2;
+            color: #0a0a0a;
+        }
+
+        /* CONTENEDOR */
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 32px;
+
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* TÍTULO */
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            color: #0a0a0a;
+        }
+
+        .description {
+            margin: 0 0 28px;
+            color: #0a0a0a;
+            line-height: 1.5;
+        }
+
+        /* SECCIONES */
+
+        .section-title {
+            margin: 32px 0 20px;
+            padding-bottom: 8px;
+
+            font-size: 20px;
+            color: #030303;
+
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        /* CAMPOS */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label,
+        legend {
+            font-weight: 600;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        legend {
+            margin-bottom: 12px;
+        }
+
+        input[type="text"],
+        input[type="time"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+
+            background: #ffffff;
+            color: #111827;
+
+            font: inherit;
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="time"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        /* RADIO */
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+
+            cursor: pointer;
+        }
+
+        /* HORARIO */
+
+        .horario {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .horario label {
+            display: block;
+            margin-bottom: 7px;
+
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        /* MENSAJE */
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        /* BOTÓN */
+
+        button {
+            width: 100%;
+            padding: 14px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #2563eb;
+            color: #ffffff;
+
+            font: inherit;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.1s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button:focus-visible {
+            outline: 3px solid rgba(37, 99, 235, 0.35);
+            outline-offset: 2px;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .form-container {
+                padding: 24px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .horario {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Postulación para Administración</h1>
+
+        <p class="description">
+            Completa el siguiente formulario. Responde con sinceridad
+            a cada una de las preguntas.
+        </p>
+
+
+        <form action="#" method="POST">
+
+            <!-- =========================
+                 DATOS PERSONALES
+            ========================== -->
+
+            <h2 class="section-title">
+                Datos personales
+            </h2>
+
+
+            <div class="form-group">
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    autocomplete="name"
+                    placeholder="Ej. Juan Pérez"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Tienes 16 años o más?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="edad"
+                                value="si"
+                                required
+                            >
+
+                            Sí
+
+                        </label>
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="edad"
+                                value="no"
+                            >
+
+                            No
+
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="pais">
+                    País
+                </label>
+
+                <input
+                    type="text"
+                    id="pais"
+                    name="pais"
+                    autocomplete="country-name"
+                    placeholder="Ej. España"
+                    required
+                >
+
+            </div>
+
+
+            <!-- =========================
+                 EXPERIENCIA Y CAPACIDADES
+            ========================== -->
+
+            <h2 class="section-title">
+                Experiencia y capacidades
+            </h2>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Te consideras una persona responsable y comprometida?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="responsabilidad"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="responsabilidad"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Tienes capacidad de organización y liderazgo?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="liderazgo"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="liderazgo"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Sabes trabajar en equipo?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="trabajo_equipo"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="trabajo_equipo"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Consideras que tienes buena comunicación?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="comunicacion"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="comunicacion"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Tienes capacidad para resolver problemas?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="resolver_problemas"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="resolver_problemas"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <!-- =========================
+                 DISPONIBILIDAD
+            ========================== -->
+
+            <h2 class="section-title">
+                Disponibilidad
+            </h2>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Tienes disponibilidad para reuniones y coordinación?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="disponibilidad"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="disponibilidad"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Rango horario disponible
+                </label>
+
+                <div class="horario">
+
+                    <div>
+
+                        <label for="hora_inicio">
+                            Desde
+                        </label>
+
+                        <input
+                            type="time"
+                            id="hora_inicio"
+                            name="hora_inicio"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="hora_fin">
+                            Hasta
+                        </label>
+
+                        <input
+                            type="time"
+                            id="hora_fin"
+                            name="hora_fin"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ACTITUD PROFESIONAL
+            ========================== -->
+
+            <h2 class="section-title">
+                Actitud profesional
+            </h2>
+
+
+            <div class="form-group">
+
+                <fieldset>
+
+                    <legend>
+                        ¿Estás dispuesto/a a mantener una actitud profesional?
+                    </legend>
+
+                    <div class="radio-group">
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="actitud_profesional"
+                                value="si"
+                                required
+                            >
+                            Sí
+                        </label>
+
+                        <label class="radio-option">
+                            <input
+                                type="radio"
+                                name="actitud_profesional"
+                                value="no"
+                            >
+                            No
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+            <!-- =========================
+                 MENSAJE
+            ========================== -->
+
+            <div class="form-group">
+
+                <label for="mensaje">
+                    ¿Por qué quieres formar parte de Administración?
+                </label>
+
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    placeholder="Cuéntanos brevemente sobre ti, tu experiencia y por qué quieres formar parte del equipo..."
+                    maxlength="1000"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- =========================
+                 BOTÓN
+            ========================== -->
+
+            <button type="submit">
+                Enviar postulación
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

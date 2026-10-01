@@ -1,0 +1,98 @@
+/* ============================================
+   Postulaciones — Modo Claro / Oscuro
+   El diseño original ES el modo oscuro (por eso
+   no hace falta un bloque [data-tema="oscuro"]
+   con variables: son las que ya trae estilos.css).
+   Aquí solo se sobrescriben para modo claro.
+   ============================================ */
+
+html[data-tema="oscuro"] { color-scheme: dark; }
+
+html[data-tema="claro"] {
+  color-scheme: light;
+  --fondo: #F7F7F5;
+  --panel: #FFFFFF;
+  --borde: #E3E1DA;
+  --texto: #16181D;
+  --suave: #6B6A63;
+}
+
+html[data-tema] body {
+  transition: background-color .35s ease, color .35s ease;
+}
+
+/* La barra usa un rgba fijo (no variable) para el blur */
+html[data-tema="claro"] .mini-barra {
+  background: rgba(247, 247, 245, 0.88);
+}
+
+/* Inputs: en oscuro usan un blanco al 3% como relleno sutil;
+   sobre fondo claro eso es invisible, hace falta lo opuesto. */
+html[data-tema="claro"] .campo input,
+html[data-tema="claro"] .campo select,
+html[data-tema="claro"] .campo textarea,
+html[data-tema="claro"] .buscar {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+/* <option> del <select>: estilos.css les pone background:#17171c fijo,
+   con texto ya claro en modo claro quedarían invisibles. */
+html[data-tema="claro"] .campo select option {
+  background: var(--panel);
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .filtros button.activo {
+  background: rgba(0, 0, 0, 0.045);
+}
+
+/* Botón "invertido" de envío: en oscuro es claro-sobre-oscuro;
+   en claro se invierte para seguir siendo legible. */
+html[data-tema="claro"] .boton-claro {
+  background: #16181D;
+  color: #fff;
+}
+
+/* El asterisco rojo pierde contraste sobre blanco */
+html[data-tema="claro"] .campo .req {
+  color: #DC2626;
+}
+
+/* ============================================
+   Botón de tema (sol / luna)
+   ============================================ */
+
+.boton-tema {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  background: var(--panel);
+  color: var(--suave);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.boton-tema svg { width: 17px; height: 17px; }
+.boton-tema:hover {
+  transform: translateY(-1px);
+  border-color: var(--discord);
+  color: var(--discord);
+}
+.boton-tema:active { transform: scale(0.92); }
+
+.boton-tema.girando svg {
+  animation: t-giro-tema .45s cubic-bezier(.68, -0.4, .32, 1.4);
+}
+@keyframes t-giro-tema {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(0.55); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boton-tema.girando svg { animation: none !important; }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulación - Profesor — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" href="/postula/">Puestos</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <span class="etiqueta">Postulación - Profesor</span>
+    <h1>Formulario de Profesor</h1>
+    <p class="sub">Completa este formulario para postularte como profesor dentro de Innovate Academy. Se buscan personas con conocimientos sólidos en programación, capacidad para enseñar y compromiso con el aprendizaje de los alumnos.</p>
+
+    <ul class="requisitos">
+      <li>Conocimientos avanzados del lenguaje o tecnología que desea enseñar.</li>
+      <li>Experiencia práctica programando.</li>
+      <li>Saber explicar conceptos de forma clara y ordenada.</li>
+      <li>Capacidad para resolver problemas.</li>
+      <li>Conocer buenas prácticas de programación.</li>
+      <li>Responsabilidad y compromiso con los alumnos.</li>
+      <li>Buena comunicación y paciencia al enseñar.</li>
+      <li>Micrófono de calidad para las clases.</li>
+      <li>Poder participar en llamadas de voz y videollamadas.</li>
+      <li>Ser capaz de preparar material educativo.</li>
+      <li>Disponibilidad horaria para dar clases.</li>
+    </ul>
+
+    <p class="sub">Si eres aceptado, nos pondremos en contacto contigo en un periodo de 72 horas hábiles. Si no recibes respuesta en ese periodo, considérate rechazado. El uso de IA en las respuestas o en el código lleva a rechazo inmediato. Si eres rechazado, tendrás que esperar 1 semana para volver a enviar el formulario.</p>
+
+    <div id="pideLogin" hidden>
+      <p class="sub">Tienes que entrar con Discord para postularte.</p>
+      <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a>
+    </div>
+
+    <form class="formulario" id="formProf" hidden>
+      <h2>1. Información necesaria</h2>
+      <div class="campo">
+        <label for="correo">Correo / Gmail <span class="req">*</span></label>
+        <input type="email" id="correo" required>
+      </div>
+      <div class="campo">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="edad">Edad (solo +18) <span class="req">*</span></label>
+        <input type="number" id="edad" min="18" max="99" required>
+      </div>
+      <div class="campo">
+        <label for="pais">País / Zona horaria <span class="req">*</span></label>
+        <input type="text" id="pais" required>
+      </div>
+      <div class="campo">
+        <label for="discordUser">Usuario de Discord <span class="req">*</span></label>
+        <input type="text" id="discordUser" required>
+      </div>
+
+      <h2>2. Experiencia</h2>
+      <div class="campo">
+        <label for="lenguajes">¿Qué lenguaje(s) de programación dominas? <span class="req">*</span></label>
+        <textarea id="lenguajes" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="nivelLenguajes">¿Qué nivel tienes en cada lenguaje? <span class="req">*</span></label>
+        <textarea id="nivelLenguajes" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="tiempo">¿Cuánto tiempo llevas programando? <span class="req">*</span></label>
+        <input type="text" id="tiempo" required>
+      </div>
+      <div class="campo">
+        <label for="expEnsenando">¿Tienes experiencia enseñando programación? <span class="req">*</span></label>
+        <select id="expEnsenando" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="detalleExp">Si tienes experiencia enseñando, describe brevemente</label>
+        <textarea id="detalleExp"></textarea>
+      </div>
+
+      <h2>3. Conocimientos</h2>
+      <div class="campo">
+        <label for="cursoEnsenar">¿Qué curso o lenguaje te gustaría enseñar? <span class="req">*</span></label>
+        <input type="text" id="cursoEnsenar" required>
+      </div>
+      <div class="campo">
+        <label for="temasEnsenar">¿Qué temas puedes enseñar de ese lenguaje? <span class="req">*</span></label>
+        <textarea id="temasEnsenar" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="archivos">Ejemplos de proyectos realizados (hasta 5 archivos de 10 MB)</label>
+        <input type="file" id="archivos" multiple accept=".png,.jpg,.jpeg,.webp,.gif,.mp4,.mov,.pdf,.doc,.docx,.txt,.md,.html,.css,.js,.py,.java,.c,.cpp,.cs,.lua,.sql,.json,.zip">
+        <div class="lista-archivos" id="listaArchivos"></div>
+      </div>
+      <div class="campo">
+        <label for="github">¿Tienes GitHub, portafolio o trabajos públicos? (Opcional)</label>
+        <input type="url" id="github" placeholder="https://...">
+      </div>
+
+      <h2>4. Disponibilidad</h2>
+      <div class="campo">
+        <label for="horas">¿Cuántas horas semanales puedes dedicar? <span class="req">*</span></label>
+        <input type="text" id="horas" required>
+      </div>
+      <div class="campo">
+        <label for="horarios">¿Qué horarios tienes disponibles? <span class="req">*</span></label>
+        <textarea id="horarios" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="clasesVoz">¿Puedes realizar clases mediante llamadas de voz o videollamadas? <span class="req">*</span></label>
+        <select id="clasesVoz" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <h2>5. Equipo</h2>
+      <div class="campo">
+        <label for="microfono">¿Tienes un micrófono de buena calidad? <span class="req">*</span></label>
+        <select id="microfono" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="internet">¿Tienes una conexión a internet estable? <span class="req">*</span></label>
+        <select id="internet" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <h2>6. Motivación</h2>
+      <div class="campo">
+        <label for="porqueAcademia">¿Por qué quieres formar parte de la academia?</label>
+        <textarea id="porqueAcademia"></textarea>
+      </div>
+      <div class="campo">
+        <label for="porqueApto">¿Por qué consideras que eres apto para enseñar?</label>
+        <textarea id="porqueApto"></textarea>
+      </div>
+
+      <p class="aviso" id="avisoForm" hidden></p>
+      <button type="submit" class="boton boton-claro" id="btnEnviar">Enviar postulación</button>
+    </form>
+
+    <a class="volver" href="/postula/">← Volver</a>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const form = document.getElementById("formProf");
+    const pideLogin = document.getElementById("pideLogin");
+    const avisoForm = document.getElementById("avisoForm");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) throw 0;
+      return r.json();
+    }).then(function () {
+      form.hidden = false;
+    }).catch(function () {
+      pideLogin.hidden = false;
+    });
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function mostrarEspera(ms) {
+      const dias = Math.ceil(ms / (24 * 3600 * 1000));
+      avisoForm.textContent = "Ya enviaste una postulación. Podrás enviar otra en " + dias + (dias === 1 ? " día." : " días.");
+      avisoForm.className = "aviso error";
+      avisoForm.hidden = false;
+    }
+
+    document.getElementById("archivos").addEventListener("change", function () {
+      const caja = document.getElementById("listaArchivos");
+      caja.innerHTML = "";
+      Array.from(this.files).forEach(function (f) {
+        const linea = document.createElement("div");
+        linea.textContent = f.name + " (" + (f.size / (1024 * 1024)).toFixed(1) + " MB)";
+        caja.appendChild(linea);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const files = document.getElementById("archivos").files;
+      if (files.length > 5) {
+        avisoForm.textContent = "Máximo 5 archivos.";
+        avisoForm.className = "aviso error";
+        avisoForm.hidden = false;
+        return;
+      }
+      for (let i = 0; i < files.length; i++) {
+        if (files[i].size > 10 * 1024 * 1024) {
+          avisoForm.textContent = "Cada archivo puede pesar máximo 10 MB.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+          return;
+        }
+      }
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "Enviando...";
+      avisoForm.hidden = true;
+
+      const datos = new FormData();
+      datos.append("datos", JSON.stringify({
+        categoria: "profesor",
+        respuestas: {
+          "Nombre completo": valor("nombre"),
+          "Correo / Gmail": valor("correo"),
+          "Edad": valor("edad"),
+          "País / Zona horaria": valor("pais"),
+          "Usuario de Discord": valor("discordUser"),
+          "Lenguajes que domina": valor("lenguajes"),
+          "Nivel en cada lenguaje": valor("nivelLenguajes"),
+          "Tiempo programando": valor("tiempo"),
+          "Experiencia enseñando": valor("expEnsenando"),
+          "Detalle experiencia enseñando": valor("detalleExp"),
+          "Curso que quiere enseñar": valor("cursoEnsenar"),
+          "Temas que puede enseñar": valor("temasEnsenar"),
+          "GitHub / Portafolio": valor("github"),
+          "Horas semanales": valor("horas"),
+          "Horarios disponibles": valor("horarios"),
+          "Clases por voz o video": valor("clasesVoz"),
+          "Micrófono de calidad": valor("microfono"),
+          "Internet estable": valor("internet"),
+          "Por qué quiere entrar": valor("porqueAcademia"),
+          "Por qué es apto": valor("porqueApto")
+        }
+      }));
+      for (let i = 0; i < files.length; i++) datos.append("archivos", files[i]);
+
+      fetch("/postula/api/postular", { method: "POST", body: datos }).then(function (r) {
+        if (r.status === 429) return r.json().then(function (j) { throw { espera: j.espera }; });
+        if (!r.ok) throw 0;
+        return r.json();
+      }).then(function () {
+        avisoForm.textContent = "Postulación enviada. La revisaremos y te avisaremos por Discord.";
+        avisoForm.className = "aviso ok";
+        avisoForm.hidden = false;
+        form.reset();
+        document.getElementById("listaArchivos").innerHTML = "";
+      }).catch(function (err) {
+        if (err && err.espera) mostrarEspera(err.espera);
+        else {
+          avisoForm.textContent = "No se pudo enviar. Intenta de nuevo.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+        }
+      }).finally(function () {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar postulación";
+      });
+    });
+  </script>
+</body>
+</html>

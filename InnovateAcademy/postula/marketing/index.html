@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulación - Marketing — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" href="/postula/">Puestos</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <span class="etiqueta">Postulación - Marketing</span>
+    <h1>Formulario de Marketing</h1>
+    <p class="sub">Completa este formulario para postularte al equipo de Marketing de Innovate Academy. Se buscan personas creativas y responsables, con interés en el crecimiento de la academia mediante contenido, promoción, redes sociales y estrategias de marketing.</p>
+    <p class="sub">Todas las postulaciones son revisadas por administración. Si tu perfil cumple, nos pondremos en contacto contigo.</p>
+
+    <div id="pideLogin" hidden>
+      <p class="sub">Tienes que entrar con Discord para postularte.</p>
+      <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a>
+    </div>
+
+    <form class="formulario" id="formMkt" hidden>
+      <h2>1. Información personal</h2>
+      <div class="campo">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="edad">Edad <span class="req">*</span></label>
+        <input type="number" id="edad" min="10" max="99" required>
+      </div>
+      <div class="campo">
+        <label for="pais">País / Zona horaria <span class="req">*</span></label>
+        <input type="text" id="pais" placeholder="Ej: México / GMT-6" required>
+      </div>
+      <div class="campo">
+        <label for="discordUser">Usuario de Discord <span class="req">*</span></label>
+        <input type="text" id="discordUser" placeholder="Ej: usuario123" required>
+      </div>
+
+      <h2>2. Experiencia</h2>
+      <div class="campo">
+        <label for="expMkt">¿Tienes experiencia en marketing? Descríbela brevemente <span class="req">*</span></label>
+        <textarea id="expMkt" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="proyectos">¿Has trabajado en algún proyecto, empresa o comunidad? Si es así, cuéntanos cuál <span class="req">*</span></label>
+        <textarea id="proyectos" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="herramientas">¿Qué herramientas utilizas? (Canva, Photoshop, CapCut, Meta Ads, Google Ads, etc.) <span class="req">*</span></label>
+        <textarea id="herramientas" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="archivos">Portafolio o trabajos (opcional, hasta 5 archivos de 10 MB)</label>
+        <input type="file" id="archivos" multiple accept=".png,.jpg,.jpeg,.webp,.gif,.mp4,.mov,.pdf,.doc,.docx,.txt,.md,.html,.css,.js,.py,.java,.c,.cpp,.cs,.lua,.sql,.json,.zip">
+        <div class="lista-archivos" id="listaArchivos"></div>
+      </div>
+      <div class="campo">
+        <label for="linkPortafolio">¿Tienes un portafolio web? Deja el link acá</label>
+        <input type="url" id="linkPortafolio" placeholder="https://...">
+      </div>
+      <div class="campo">
+        <label for="areas">¿Qué áreas del marketing dominas? <span class="req">*</span></label>
+        <textarea id="areas" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="redes">¿Qué redes sociales manejas con mayor experiencia? <span class="req">*</span></label>
+        <textarea id="redes" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="promocion">¿Cómo promocionarías Innovate Academy? <span class="req">*</span></label>
+        <textarea id="promocion" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="idea">Propón una idea para atraer nuevos alumnos <span class="req">*</span></label>
+        <textarea id="idea" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="contenido">¿Qué tipo de contenido sabes crear? (Videos, publicaciones, anuncios, diseños, etc.) <span class="req">*</span></label>
+        <textarea id="contenido" required></textarea>
+      </div>
+
+      <h2>3. Disponibilidad</h2>
+      <div class="campo">
+        <label>¿Cuántas horas semanales puedes dedicar? <span class="req">*</span></label>
+        <div class="radios">
+          <label><input type="radio" name="horas" value="1-2 horas" required> 1-2 horas</label>
+          <label><input type="radio" name="horas" value="2-4 horas"> 2-4 horas</label>
+          <label><input type="radio" name="horas" value="4-8 horas"> 4-8 horas</label>
+          <label><input type="radio" name="horas" value="+10 horas"> +10 horas</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="horarios">¿Qué horarios tienes disponibles? <span class="req">*</span></label>
+        <textarea id="horarios" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="reuniones">¿Puedes participar en reuniones de voz cuando sea necesario? <span class="req">*</span></label>
+        <select id="reuniones" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+          <option>A veces</option>
+        </select>
+      </div>
+
+      <p class="aviso" id="avisoForm" hidden></p>
+      <button type="submit" class="boton boton-claro" id="btnEnviar">Enviar postulación</button>
+    </form>
+
+    <a class="volver" href="/postula/">← Volver</a>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const form = document.getElementById("formMkt");
+    const pideLogin = document.getElementById("pideLogin");
+    const avisoForm = document.getElementById("avisoForm");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) throw 0;
+      return r.json();
+    }).then(function () {
+      form.hidden = false;
+    }).catch(function () {
+      pideLogin.hidden = false;
+    });
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function mostrarEspera(ms) {
+      const dias = Math.ceil(ms / (24 * 3600 * 1000));
+      avisoForm.textContent = "Ya enviaste una postulación. Podrás enviar otra en " + dias + (dias === 1 ? " día." : " días.");
+      avisoForm.className = "aviso error";
+      avisoForm.hidden = false;
+    }
+
+    document.getElementById("archivos").addEventListener("change", function () {
+      const caja = document.getElementById("listaArchivos");
+      caja.innerHTML = "";
+      Array.from(this.files).forEach(function (f) {
+        const linea = document.createElement("div");
+        const mb = (f.size / (1024 * 1024)).toFixed(1);
+        linea.textContent = f.name + " (" + mb + " MB)";
+        caja.appendChild(linea);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const horas = form.querySelector("input[name=horas]:checked");
+      const files = document.getElementById("archivos").files;
+      if (files.length > 5) {
+        avisoForm.textContent = "Máximo 5 archivos.";
+        avisoForm.className = "aviso error";
+        avisoForm.hidden = false;
+        return;
+      }
+      for (let i = 0; i < files.length; i++) {
+        if (files[i].size > 10 * 1024 * 1024) {
+          avisoForm.textContent = "Cada archivo puede pesar máximo 10 MB.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+          return;
+        }
+      }
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "Enviando...";
+      avisoForm.hidden = true;
+
+      const datos = new FormData();
+      datos.append("datos", JSON.stringify({
+        categoria: "marketing",
+        respuestas: {
+          "Nombre completo": valor("nombre"),
+          "Edad": valor("edad"),
+          "País / Zona horaria": valor("pais"),
+          "Usuario de Discord": valor("discordUser"),
+          "Experiencia en marketing": valor("expMkt"),
+          "Proyectos o comunidades": valor("proyectos"),
+          "Herramientas": valor("herramientas"),
+          "Link portafolio": valor("linkPortafolio"),
+          "Áreas que domina": valor("areas"),
+          "Redes sociales": valor("redes"),
+          "Cómo promocionaría la academia": valor("promocion"),
+          "Idea para atraer alumnos": valor("idea"),
+          "Tipo de contenido": valor("contenido"),
+          "Horas semanales": horas ? horas.value : "",
+          "Horarios disponibles": valor("horarios"),
+          "Reuniones de voz": valor("reuniones")
+        }
+      }));
+      for (let i = 0; i < files.length; i++) datos.append("archivos", files[i]);
+
+      fetch("/postula/api/postular", { method: "POST", body: datos }).then(function (r) {
+        if (r.status === 429) return r.json().then(function (j) { throw { espera: j.espera }; });
+        if (!r.ok) throw 0;
+        return r.json();
+      }).then(function () {
+        avisoForm.textContent = "Postulación enviada. La revisaremos y te avisaremos por Discord.";
+        avisoForm.className = "aviso ok";
+        avisoForm.hidden = false;
+        form.reset();
+      }).catch(function (err) {
+        if (err && err.espera) mostrarEspera(err.espera);
+        else {
+          avisoForm.textContent = "No se pudo enviar. Intenta de nuevo.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+        }
+      }).finally(function () {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar postulación";
+      });
+    });
+  </script>
+</body>
+</html>

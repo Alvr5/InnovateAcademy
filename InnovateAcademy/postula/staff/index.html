@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulación - Staff — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" href="/postula/">Puestos</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <span class="etiqueta">Postulación - Staff</span>
+    <h1>Formulario de Staff</h1>
+    <p class="sub">Completa este formulario para postularte al equipo de Staff de Innovate Academy. Se buscan personas responsables y activas, comprometidas con mantener una comunidad organizada, segura y agradable. El equipo apoya a la comunidad, modera los espacios y colabora con la administración.</p>
+
+    <ul class="requisitos">
+      <li>Tener 14 años o más.</li>
+      <li>Responsabilidad y compromiso con la comunidad.</li>
+      <li>Actitud respetuosa y profesional.</li>
+      <li>Buena comunicación con los usuarios.</li>
+      <li>Disponibilidad para ayudar y participar.</li>
+      <li>Conocer las normas de Discord y de Innovate Academy.</li>
+      <li>Resolver problemas de forma tranquila y objetiva.</li>
+      <li>No tener sanciones graves en comunidades anteriores.</li>
+      <li>Capacidad para trabajar en equipo.</li>
+      <li>Cumplir las indicaciones del equipo administrativo.</li>
+    </ul>
+
+    <p class="sub">Todas las postulaciones son revisadas por administración. Si tu perfil cumple, nos pondremos en contacto contigo.</p>
+
+    <div id="pideLogin" hidden>
+      <p class="sub">Tienes que entrar con Discord para postularte.</p>
+      <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a>
+    </div>
+
+    <form class="formulario" id="formStaff" hidden>
+      <h2>1. Información personal</h2>
+      <div class="campo">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="edad">Edad <span class="req">*</span></label>
+        <input type="number" id="edad" min="10" max="99" required>
+      </div>
+      <div class="campo">
+        <label for="pais">País / Zona horaria <span class="req">*</span></label>
+        <input type="text" id="pais" required>
+      </div>
+      <div class="campo">
+        <label for="discordUser">Usuario de Discord <span class="req">*</span></label>
+        <input type="text" id="discordUser" required>
+      </div>
+
+      <h2>2. Experiencia</h2>
+      <div class="campo">
+        <label for="expStaff">¿Tienes experiencia como Staff o Moderador en alguna comunidad? <span class="req">*</span></label>
+        <select id="expStaff" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="funciones">Si tienes experiencia, explica qué funciones realizabas</label>
+        <textarea id="funciones"></textarea>
+      </div>
+      <div class="campo">
+        <label for="bots">¿Has utilizado bots de moderación o herramientas de gestión? <span class="req">*</span></label>
+        <textarea id="bots" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="comunidades">¿En qué comunidades has participado anteriormente? (Opcional)</label>
+        <textarea id="comunidades"></textarea>
+      </div>
+
+      <h2>3. Conocimientos</h2>
+      <div class="campo">
+        <label>¿Cómo calificarías tus conocimientos? <span class="req">*</span></label>
+        <div class="radios">
+          <label><input type="radio" name="nivel" value="Novato" required> Novato</label>
+          <label><input type="radio" name="nivel" value="Intermedio"> Intermedio</label>
+          <label><input type="radio" name="nivel" value="Experimentado"> Experimentado</label>
+          <label><input type="radio" name="nivel" value="Profesional"> Profesional</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="discusion">¿Cómo actuarías ante una discusión entre dos miembros? <span class="req">*</span></label>
+        <textarea id="discusion" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="normas">¿Qué harías si un usuario incumple las normas repetidamente? <span class="req">*</span></label>
+        <textarea id="normas" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="spam">¿Cómo manejarías una situación de spam, raid o comportamiento tóxico? <span class="req">*</span></label>
+        <textarea id="spam" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="buenStaff">¿Qué consideras que debe tener un buen Staff? <span class="req">*</span></label>
+        <textarea id="buenStaff" required></textarea>
+      </div>
+
+      <h2>4. Disponibilidad</h2>
+      <div class="campo">
+        <label for="horas">¿Cuántas horas semanales puedes dedicar? <span class="req">*</span></label>
+        <input type="text" id="horas" required>
+      </div>
+      <div class="campo">
+        <label for="horarios">¿Qué horarios tienes disponibles? <span class="req">*</span></label>
+        <textarea id="horarios" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="reuniones">¿Puedes participar en reuniones del equipo cuando sea necesario? <span class="req">*</span></label>
+        <select id="reuniones" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+          <option>A veces</option>
+        </select>
+      </div>
+
+      <p class="aviso" id="avisoForm" hidden></p>
+      <button type="submit" class="boton boton-claro" id="btnEnviar">Enviar postulación</button>
+    </form>
+
+    <a class="volver" href="/postula/">← Volver</a>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const form = document.getElementById("formStaff");
+    const pideLogin = document.getElementById("pideLogin");
+    const avisoForm = document.getElementById("avisoForm");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) throw 0;
+      return r.json();
+    }).then(function () {
+      form.hidden = false;
+    }).catch(function () {
+      pideLogin.hidden = false;
+    });
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function mostrarEspera(ms) {
+      const dias = Math.ceil(ms / (24 * 3600 * 1000));
+      avisoForm.textContent = "Ya enviaste una postulación. Podrás enviar otra en " + dias + (dias === 1 ? " día." : " días.");
+      avisoForm.className = "aviso error";
+      avisoForm.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nivel = form.querySelector("input[name=nivel]:checked");
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "Enviando...";
+      avisoForm.hidden = true;
+
+      fetch("/postula/api/postular", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          categoria: "staff",
+          respuestas: {
+            "Nombre completo": valor("nombre"),
+            "Edad": valor("edad"),
+            "País / Zona horaria": valor("pais"),
+            "Usuario de Discord": valor("discordUser"),
+            "Experiencia como Staff": valor("expStaff"),
+            "Funciones anteriores": valor("funciones"),
+            "Bots o herramientas": valor("bots"),
+            "Comunidades anteriores": valor("comunidades"),
+            "Nivel de conocimientos": nivel ? nivel.value : "",
+            "Ante una discusión": valor("discusion"),
+            "Ante incumplimiento de normas": valor("normas"),
+            "Ante spam o raid": valor("spam"),
+            "Qué debe tener un buen Staff": valor("buenStaff"),
+            "Horas semanales": valor("horas"),
+            "Horarios disponibles": valor("horarios"),
+            "Reuniones de equipo": valor("reuniones")
+          }
+        })
+      }).then(function (r) {
+        if (r.status === 429) return r.json().then(function (j) { throw { espera: j.espera }; });
+        if (!r.ok) throw 0;
+        return r.json();
+      }).then(function () {
+        avisoForm.textContent = "Postulación enviada. La revisaremos y te avisaremos por Discord.";
+        avisoForm.className = "aviso ok";
+        avisoForm.hidden = false;
+        form.reset();
+      }).catch(function (err) {
+        if (err && err.espera) mostrarEspera(err.espera);
+        else {
+          avisoForm.textContent = "No se pudo enviar. Intenta de nuevo.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+        }
+      }).finally(function () {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar postulación";
+      });
+    });
+  </script>
+</body>
+</html>

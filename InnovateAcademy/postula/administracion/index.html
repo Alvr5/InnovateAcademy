@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulación - Administración — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" href="/postula/">Puestos</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <span class="etiqueta">Postulación - Administración</span>
+    <h1>Formulario de Administración</h1>
+    <p class="sub">Completa este formulario para postularte al equipo de Administración de Innovate Academy. Se buscan personas responsables, organizadas y con capacidad de liderazgo para gestionar, coordinar y mejorar el funcionamiento de la academia.</p>
+
+    <ul class="requisitos">
+      <li>Tener 16 años o más.</li>
+      <li>Responsabilidad y compromiso.</li>
+      <li>Organización y liderazgo.</li>
+      <li>Saber trabajar en equipo.</li>
+      <li>Buena comunicación.</li>
+      <li>Capacidad para resolver problemas.</li>
+      <li>Disponibilidad para reuniones y coordinación.</li>
+      <li>Actitud profesional.</li>
+    </ul>
+
+    <p class="sub">Todas las postulaciones son revisadas. Si tu perfil cumple, nos pondremos en contacto contigo.</p>
+
+    <div id="pideLogin" hidden>
+      <p class="sub">Tienes que entrar con Discord para postularte.</p>
+      <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a>
+    </div>
+
+    <form class="formulario" id="formAdmin" hidden>
+      <h2>1. Información personal</h2>
+      <div class="campo">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="edad">Edad <span class="req">*</span></label>
+        <input type="number" id="edad" min="10" max="99" required>
+      </div>
+      <div class="campo">
+        <label for="pais">País / Zona horaria <span class="req">*</span></label>
+        <input type="text" id="pais" placeholder="Ej: Chile / GMT-4" required>
+      </div>
+      <div class="campo">
+        <label for="discordUser">Usuario de Discord <span class="req">*</span></label>
+        <input type="text" id="discordUser" placeholder="Ej: usuario123" required>
+      </div>
+      <div class="campo">
+        <label for="horas">Horas a la semana disponibles <span class="req">*</span></label>
+        <input type="number" id="horas" min="1" max="168" required>
+      </div>
+
+      <h2>2. Experiencia</h2>
+      <div class="campo">
+        <label for="expAdmin">¿Tienes experiencia en administración o gestión de equipos? <span class="req">*</span></label>
+        <select id="expAdmin" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="funciones">Si tienes experiencia, describe tus funciones anteriores <span class="req">*</span></label>
+        <textarea id="funciones" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="comunidades">¿Has administrado comunidades, proyectos o equipos? Explica brevemente <span class="req">*</span></label>
+        <textarea id="comunidades" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="herramientas">¿Qué herramientas de organización conoces? (Notion, Trello, Google Workspace, etc.) <span class="req">*</span></label>
+        <textarea id="herramientas" required></textarea>
+      </div>
+
+      <h2>3. Gestión y organización</h2>
+      <div class="campo">
+        <label for="organizar">¿Cómo organizarías el trabajo de un equipo? <span class="req">*</span></label>
+        <textarea id="organizar" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="conflicto">¿Cómo gestionarías un problema entre miembros del equipo?</label>
+        <textarea id="conflicto"></textarea>
+      </div>
+      <div class="campo">
+        <label for="priorizar">¿Cómo priorizarías varias tareas importantes al mismo tiempo? <span class="req">*</span></label>
+        <textarea id="priorizar" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="fundamental">¿Qué consideras fundamental para que una academia/empresa funcione correctamente? <span class="req">*</span></label>
+        <textarea id="fundamental" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="mejora">Propón una mejora que aplicarías en Innovate Academy <span class="req">*</span></label>
+        <textarea id="mejora" required></textarea>
+      </div>
+
+      <h2>4. Liderazgo</h2>
+      <div class="campo">
+        <label for="liderazgo">¿Tienes experiencia liderando personas o equipos? <span class="req">*</span></label>
+        <select id="liderazgo" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="motivar">¿Cómo motivarías a un equipo que está perdiendo actividad? <span class="req">*</span></label>
+        <textarea id="motivar" required></textarea>
+      </div>
+      <div class="campo">
+        <label>Madurez que consideras que tienes (1 menor, 5 mayor) <span class="req">*</span></label>
+        <div class="radios">
+          <label><input type="radio" name="madurez" value="1" required> 1</label>
+          <label><input type="radio" name="madurez" value="2"> 2</label>
+          <label><input type="radio" name="madurez" value="3"> 3</label>
+          <label><input type="radio" name="madurez" value="4"> 4</label>
+          <label><input type="radio" name="madurez" value="5"> 5</label>
+        </div>
+      </div>
+
+      <h2>5. Motivación</h2>
+      <div class="campo">
+        <label for="porqueAdmin">¿Por qué quieres formar parte de la administración de Innovate Academy? <span class="req">*</span></label>
+        <textarea id="porqueAdmin" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="porqueApto">¿Por qué consideras que eres apto para este puesto? <span class="req">*</span></label>
+        <textarea id="porqueApto" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="aporte">¿Qué aportarías a la academia? <span class="req">*</span></label>
+        <textarea id="aporte" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="extra">¿Hay algo más que quieras agregar? <span class="req">*</span></label>
+        <textarea id="extra" required></textarea>
+      </div>
+
+      <p class="aviso" id="avisoForm" hidden></p>
+      <button type="submit" class="boton boton-claro" id="btnEnviar">Enviar postulación</button>
+    </form>
+
+    <a class="volver" href="/postula/">← Volver</a>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const form = document.getElementById("formAdmin");
+    const pideLogin = document.getElementById("pideLogin");
+    const avisoForm = document.getElementById("avisoForm");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) throw 0;
+      return r.json();
+    }).then(function () {
+      form.hidden = false;
+    }).catch(function () {
+      pideLogin.hidden = false;
+    });
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function mostrarEspera(ms) {
+      const dias = Math.ceil(ms / (24 * 3600 * 1000));
+      avisoForm.textContent = "Ya enviaste una postulación. Podrás enviar otra en " + dias + (dias === 1 ? " día." : " días.");
+      avisoForm.className = "aviso error";
+      avisoForm.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const madurez = form.querySelector("input[name=madurez]:checked");
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "Enviando...";
+      avisoForm.hidden = true;
+
+      fetch("/postula/api/postular", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          categoria: "administracion",
+          respuestas: {
+            "Nombre completo": valor("nombre"),
+            "Edad": valor("edad"),
+            "País / Zona horaria": valor("pais"),
+            "Usuario de Discord": valor("discordUser"),
+            "Horas a la semana": valor("horas"),
+            "Experiencia en administración": valor("expAdmin"),
+            "Funciones anteriores": valor("funciones"),
+            "Comunidades o equipos administrados": valor("comunidades"),
+            "Herramientas de organización": valor("herramientas"),
+            "Cómo organizaría un equipo": valor("organizar"),
+            "Cómo gestionaría un conflicto": valor("conflicto"),
+            "Cómo priorizaría tareas": valor("priorizar"),
+            "Fundamental para que funcione": valor("fundamental"),
+            "Mejora propuesta": valor("mejora"),
+            "Experiencia liderando": valor("liderazgo"),
+            "Cómo motivaría al equipo": valor("motivar"),
+            "Madurez (1-5)": madurez ? madurez.value : "",
+            "Por qué quiere entrar": valor("porqueAdmin"),
+            "Por qué es apto": valor("porqueApto"),
+            "Qué aportaría": valor("aporte"),
+            "Algo más": valor("extra")
+          }
+        })
+      }).then(function (r) {
+        if (r.status === 429) return r.json().then(function (j) { throw { espera: j.espera }; });
+        if (!r.ok) throw 0;
+        return r.json();
+      }).then(function () {
+        avisoForm.textContent = "Postulación enviada. La revisaremos y te avisaremos por Discord.";
+        avisoForm.className = "aviso ok";
+        avisoForm.hidden = false;
+        form.reset();
+      }).catch(function (err) {
+        if (err && err.espera) mostrarEspera(err.espera);
+        else {
+          avisoForm.textContent = "No se pudo enviar. Intenta de nuevo.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+        }
+      }).finally(function () {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar postulación";
+      });
+    });
+  </script>
+</body>
+</html>

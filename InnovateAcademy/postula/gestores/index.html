@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postulación - Gestores — Innovate Academy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/postula/estilos.css">
+  <link rel="stylesheet" href="/postula/tema.css">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"oscuro";document.documentElement.setAttribute("data-tema",t);}catch(e){}})();</script>
+  <link rel="icon" type="image/png" href="/logo.png">
+</head>
+<body>
+  <header class="mini-barra">
+    <nav class="mini-nav">
+      <a href="/postula/"><img src="/logo.png" alt="Innovate Academy">Postulaciones</a>
+      <a class="der" href="/postula/">Puestos</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <span class="etiqueta">Postulación - Gestores</span>
+    <h1>Formulario de Gestión Financiera</h1>
+    <p class="sub">Completa este formulario para postularte al equipo de Gestión Financiera de Innovate Academy. Se buscan personas responsables, organizadas y de confianza para el control, registro y administración de los recursos económicos de la academia, trabajando junto con la administración.</p>
+
+    <ul class="requisitos">
+      <li>Tener 18 años o más.</li>
+      <li>Ser responsable y organizado.</li>
+      <li>Conocimientos básicos de administración o finanzas.</li>
+      <li>Ser una persona de confianza.</li>
+      <li>Capacidad para manejar información privada.</li>
+      <li>Saber trabajar con documentos y registros.</li>
+      <li>Mantener una actitud profesional.</li>
+    </ul>
+
+    <div id="pideLogin" hidden>
+      <p class="sub">Tienes que entrar con Discord para postularte.</p>
+      <a class="boton boton-discord" href="/postula/api/login">Entrar con Discord</a>
+    </div>
+
+    <form class="formulario" id="formGestor" hidden>
+      <h2>1. Información personal</h2>
+      <div class="campo">
+        <label for="nombre">Nombre completo <span class="req">*</span></label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="campo">
+        <label for="edad">Edad <span class="req">*</span></label>
+        <input type="number" id="edad" min="10" max="99" required>
+      </div>
+      <div class="campo">
+        <label for="pais">País / Zona horaria <span class="req">*</span></label>
+        <input type="text" id="pais" required>
+      </div>
+      <div class="campo">
+        <label for="discordUser">Usuario de Discord <span class="req">*</span></label>
+        <input type="text" id="discordUser" required>
+      </div>
+      <div class="campo">
+        <label for="disponibilidad">Disponibilidad semanal en horas <span class="req">*</span></label>
+        <input type="text" id="disponibilidad" required>
+      </div>
+
+      <h2>2. Experiencia</h2>
+      <div class="campo">
+        <label for="expAdmin">¿Tienes experiencia en administración, gestión o manejo de dinero? <span class="req">*</span></label>
+        <select id="expAdmin" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="funciones">Si tienes experiencia, explica brevemente tus funciones</label>
+        <textarea id="funciones"></textarea>
+      </div>
+      <div class="campo">
+        <label for="presupuestos">¿Has gestionado presupuestos, pagos o registros financieros anteriormente? <span class="req">*</span></label>
+        <textarea id="presupuestos" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="herramientas">¿Qué herramientas de organización conoces? (Excel, Google Sheets, Notion, etc.) <span class="req">*</span></label>
+        <textarea id="herramientas" required></textarea>
+      </div>
+
+      <h2>3. Negociación y atención a clientes</h2>
+      <div class="campo">
+        <label for="expNegociando">¿Tienes experiencia negociando precios, acuerdos o servicios? <span class="req">*</span></label>
+        <select id="expNegociando" required>
+          <option value="">Elige una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="precioAlto">¿Cómo negociarías con un cliente que considera que el precio de un curso es demasiado alto? <span class="req">*</span></label>
+        <textarea id="precioAlto" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="descuento">Un cliente solicita un descuento importante. ¿Cómo actuarías? <span class="req">*</span></label>
+        <textarea id="descuento" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="valorCurso">¿Cómo explicarías el valor de un curso para justificar su precio? <span class="req">*</span></label>
+        <textarea id="valorCurso" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="factoresDescuento">¿Qué factores tendrías en cuenta antes de ofrecer un descuento o una promoción? <span class="req">*</span></label>
+        <textarea id="factoresDescuento" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="relacionClientes">¿Qué importancia tiene mantener una buena relación con los clientes? <span class="req">*</span></label>
+        <textarea id="relacionClientes" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="estrategiaVentas">Propón una estrategia para aumentar las ventas o mejorar la conversión de alumnos <span class="req">*</span></label>
+        <textarea id="estrategiaVentas" required></textarea>
+      </div>
+
+      <h2>4. Conocimientos financieros</h2>
+      <div class="campo">
+        <label for="conocFinancieros">¿Qué conocimientos tienes sobre administración financiera? <span class="req">*</span></label>
+        <textarea id="conocFinancieros" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="registroIngresos">¿Cómo organizarías un registro de ingresos y gastos? <span class="req">*</span></label>
+        <textarea id="registroIngresos" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="evitarErrores">¿Cómo evitarías errores en la gestión del dinero? <span class="req">*</span></label>
+        <textarea id="evitarErrores" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="errorRegistro">¿Qué harías si detectas un error en un registro financiero? <span class="req">*</span></label>
+        <textarea id="errorRegistro" required></textarea>
+      </div>
+
+      <h2>5. Responsabilidad y confianza</h2>
+      <div class="campo">
+        <label for="personaConfianza">¿Por qué consideras que eres una persona de confianza? <span class="req">*</span></label>
+        <textarea id="personaConfianza" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="infoPrivada">¿Cómo manejarías información financiera privada? <span class="req">*</span></label>
+        <textarea id="infoPrivada" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="accesoIndebido">¿Qué harías si un miembro del equipo solicita acceso a información que no corresponde a su cargo? <span class="req">*</span></label>
+        <textarea id="accesoIndebido" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="ideaGestion">Propón una idea para mejorar la gestión económica de Innovate Academy <span class="req">*</span></label>
+        <textarea id="ideaGestion" required></textarea>
+      </div>
+
+      <h2>6. Motivación</h2>
+      <div class="campo">
+        <label for="porqueGestores">¿Por qué quieres formar parte del equipo de Gestores? <span class="req">*</span></label>
+        <textarea id="porqueGestores" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="porqueApto">¿Por qué consideras que eres apto para este puesto? <span class="req">*</span></label>
+        <textarea id="porqueApto" required></textarea>
+      </div>
+      <div class="campo">
+        <label for="extra">¿Hay algo más que quieras agregar? <span class="req">*</span></label>
+        <textarea id="extra" required></textarea>
+      </div>
+
+      <p class="aviso" id="avisoForm" hidden></p>
+      <button type="submit" class="boton boton-claro" id="btnEnviar">Enviar postulación</button>
+    </form>
+
+    <a class="volver" href="/postula/">← Volver</a>
+  </main>
+
+  <script src="/postula/tema.js"></script>
+  <script>
+    const form = document.getElementById("formGestor");
+    const pideLogin = document.getElementById("pideLogin");
+    const avisoForm = document.getElementById("avisoForm");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    fetch("/postula/api/yo").then(function (r) {
+      if (!r.ok) throw 0;
+      return r.json();
+    }).then(function () {
+      form.hidden = false;
+    }).catch(function () {
+      pideLogin.hidden = false;
+    });
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function mostrarEspera(ms) {
+      const dias = Math.ceil(ms / (24 * 3600 * 1000));
+      avisoForm.textContent = "Ya enviaste una postulación. Podrás enviar otra en " + dias + (dias === 1 ? " día." : " días.");
+      avisoForm.className = "aviso error";
+      avisoForm.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "Enviando...";
+      avisoForm.hidden = true;
+
+      fetch("/postula/api/postular", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          categoria: "gestor",
+          respuestas: {
+            "Nombre completo": valor("nombre"),
+            "Edad": valor("edad"),
+            "País / Zona horaria": valor("pais"),
+            "Usuario de Discord": valor("discordUser"),
+            "Disponibilidad semanal": valor("disponibilidad"),
+            "Experiencia en administración": valor("expAdmin"),
+            "Funciones anteriores": valor("funciones"),
+            "Presupuestos o registros": valor("presupuestos"),
+            "Herramientas": valor("herramientas"),
+            "Experiencia negociando": valor("expNegociando"),
+            "Ante precio alto": valor("precioAlto"),
+            "Ante descuento importante": valor("descuento"),
+            "Valor del curso": valor("valorCurso"),
+            "Factores para descuento": valor("factoresDescuento"),
+            "Relación con clientes": valor("relacionClientes"),
+            "Estrategia de ventas": valor("estrategiaVentas"),
+            "Conocimientos financieros": valor("conocFinancieros"),
+            "Registro de ingresos y gastos": valor("registroIngresos"),
+            "Evitar errores": valor("evitarErrores"),
+            "Ante error en registro": valor("errorRegistro"),
+            "Por qué es de confianza": valor("personaConfianza"),
+            "Manejo info privada": valor("infoPrivada"),
+            "Ante acceso indebido": valor("accesoIndebido"),
+            "Idea de gestión": valor("ideaGestion"),
+            "Por qué quiere entrar": valor("porqueGestores"),
+            "Por qué es apto": valor("porqueApto"),
+            "Algo más": valor("extra")
+          }
+        })
+      }).then(function (r) {
+        if (r.status === 429) return r.json().then(function (j) { throw { espera: j.espera }; });
+        if (!r.ok) throw 0;
+        return r.json();
+      }).then(function () {
+        avisoForm.textContent = "Postulación enviada. La revisaremos y te avisaremos por Discord.";
+        avisoForm.className = "aviso ok";
+        avisoForm.hidden = false;
+        form.reset();
+      }).catch(function (err) {
+        if (err && err.espera) mostrarEspera(err.espera);
+        else {
+          avisoForm.textContent = "No se pudo enviar. Intenta de nuevo.";
+          avisoForm.className = "aviso error";
+          avisoForm.hidden = false;
+        }
+      }).finally(function () {
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "Enviar postulación";
+      });
+    });
+  </script>
+</body>
+</html>
