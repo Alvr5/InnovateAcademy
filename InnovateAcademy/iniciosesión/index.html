@@ -26,30 +26,31 @@
         <button type="submit">Iniciar Sesión</button>
     </form>
     </div>
-    <script>
-        // Declaramos la variable 'supabase' UNA sola vez en todo el proyecto
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+<script>
+    const supabaseClient = window.supabase.createClient(
+        'https://eorctlkxihvxynooadfg.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvcmN0bGt4aWh2eHlub29hZGZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxMTkzODIsImV4cCI6MjEwMjY5NTM4Mn0.SKeFWvo0DQymV_etSzl7C6ai_Om_tLaOuUraFI7MZzw'
+    );
 
-        // Evento del formulario
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            // Intentar iniciar sesión con Supabase Auth
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email,
-                password
-            });
-
-            if (error) {
-                alert('Error al iniciar sesión: ' + error.message);
-            } else {
-                alert('¡Sesión iniciada con éxito!');
-                console.log('Datos del usuario:', data.user);
-            }
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email,
+            password
         });
-    </script>
+
+        if (error) {
+            alert('Error al iniciar sesión: ' + error.message);
+        } else {
+            alert('¡Sesión iniciada con éxito!');
+            console.log('Datos del usuario:', data.user);
+        }
+    });
+</script>
+
 </body>
 </html>
